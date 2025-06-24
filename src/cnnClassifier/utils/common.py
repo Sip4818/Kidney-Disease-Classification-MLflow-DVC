@@ -1,6 +1,4 @@
 import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
 from box.exceptions import BoxValueError
 import yaml
 from src.cnnClassifier import logger
@@ -11,6 +9,9 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
+
+
+
 
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
