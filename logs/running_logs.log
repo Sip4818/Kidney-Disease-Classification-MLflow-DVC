@@ -319,3 +319,226 @@ x==========x]
 [2025-06-25 16:51:37,498: INFO: main: >>>>>> stage Training completed <<<<<<
 
 x==========x]
+[2025-06-25 22:03:48,044: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-06-25 22:04:40,134: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-06-25 22:14:51,101: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-06-25 22:14:54,932: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<<]
+[2025-06-25 22:14:54,947: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 22:14:54,949: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 22:14:54,949: INFO: common: created directory at: artifacts]
+[2025-06-25 22:14:54,949: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-06-25 22:14:54,950: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-06-25 22:14:55,146: ERROR: main: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001D402D25AC0>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]
+Traceback (most recent call last):
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connection.py", line 199, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\socket.py", line 976, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connection.py", line 693, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connection.py", line 206, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000001D402D25AC0>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\anaconda3\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001D402D25AC0>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\main.py", line 11, in <module>
+    obj.main()
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\src\cnnClassifier\pipeline\stage_01_data_injestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\src\cnnClassifier\components\data_ingestion.py", line 31, in download_file
+    raise e
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\src\cnnClassifier\components\data_ingestion.py", line 26, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\hp\anaconda3\Lib\site-packages\gdown\download.py", line 202, in download
+    res = sess.get(url, stream=True, verify=verify)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\requests\adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?/export=download&id=1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001D402D25AC0>: Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+[2025-06-25 22:16:32,170: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-06-25 22:16:35,515: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<<]
+[2025-06-25 22:16:35,517: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 22:16:35,518: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 22:16:35,519: INFO: common: created directory at: artifacts]
+[2025-06-25 22:16:35,519: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-06-25 22:16:35,520: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-06-25 22:21:30,704: ERROR: main: ('Connection broken: IncompleteRead(10137922 bytes read, 47576030 more expected)', IncompleteRead(10137922 bytes read, 47576030 more expected))]
+Traceback (most recent call last):
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\response.py", line 748, in _error_catcher
+    yield
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\response.py", line 894, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(10137922 bytes read, 47576030 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hp\anaconda3\Lib\site-packages\requests\models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\response.py", line 1060, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\response.py", line 977, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\response.py", line 872, in _raw_read
+    with self._error_catcher():
+  File "C:\Users\hp\anaconda3\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\hp\anaconda3\Lib\site-packages\urllib3\response.py", line 772, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(10137922 bytes read, 47576030 more expected)', IncompleteRead(10137922 bytes read, 47576030 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\main.py", line 11, in <module>
+    obj.main()
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\src\cnnClassifier\pipeline\stage_01_data_injestion.py", line 15, in main
+    data_ingestion.download_file()
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\src\cnnClassifier\components\data_ingestion.py", line 31, in download_file
+    raise e
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\src\cnnClassifier\components\data_ingestion.py", line 26, in download_file
+    gdown.download(prefix+file_id,zip_download_dir)
+  File "C:\Users\hp\anaconda3\Lib\site-packages\gdown\download.py", line 368, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\hp\anaconda3\Lib\site-packages\requests\models.py", line 822, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(10137922 bytes read, 47576030 more expected)', IncompleteRead(10137922 bytes read, 47576030 more expected))
+[2025-06-25 22:24:34,975: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-06-25 22:24:38,351: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<<]
+[2025-06-25 22:24:38,353: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 22:24:38,355: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 22:24:38,355: INFO: common: created directory at: artifacts]
+[2025-06-25 22:24:38,356: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-06-25 22:24:38,356: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-06-25 22:47:26,200: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-06-25 22:47:28,971: INFO: data_ingestion: Extracted zip file sucessfully]
+[2025-06-25 22:47:28,972: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-06-25 22:47:28,972: INFO: main: *******************]
+[2025-06-25 22:47:28,973: INFO: main: >>>>>> stage Base model preparation stage started <<<<<<]
+[2025-06-25 22:47:28,996: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 22:47:28,998: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 22:47:28,999: INFO: common: created directory at: artifacts]
+[2025-06-25 22:47:29,000: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-06-25 22:47:29,539: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-06-25 22:47:30,165: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-06-25 22:47:31,781: INFO: main: >>>>>> stage Base model preparation stage completed <<<<<<
+
+x==========x]
+[2025-06-25 22:47:31,782: INFO: main: *******************]
+[2025-06-25 22:47:31,782: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-06-25 22:47:31,784: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 22:47:31,786: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 22:47:31,787: INFO: common: created directory at: artifacts]
+[2025-06-25 22:47:31,788: INFO: common: created directory at: artifacts\training]
+[2025-06-25 22:47:31,997: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-06-25 22:49:23,072: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-06-25 22:49:23,336: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-06-25 22:49:23,336: INFO: main: *******************]
+[2025-06-25 22:49:23,337: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-06-25 22:49:23,342: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 22:49:23,344: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 22:49:23,345: INFO: common: created directory at: artifacts]
+[2025-06-25 22:49:23,840: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-06-25 22:49:37,117: ERROR: main: 'Evaluation' object has no attribute 'save_score']
+Traceback (most recent call last):
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\main.py", line 45, in <module>
+    model_evalution.main()
+  File "D:\learnbay\DL PROjECTS\Kidney-Disease-Classification-MLflow-DVC\src\cnnClassifier\pipeline\stage_04_model_evaluation.py", line 20, in main
+    evaluation.save_score()
+    ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Evaluation' object has no attribute 'save_score'
+[2025-06-25 22:52:57,876: INFO: utils: NumExpr defaulting to 8 threads.]
+[2025-06-25 22:53:08,279: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<<]
+[2025-06-25 22:53:08,283: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 22:53:08,284: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 22:53:08,285: INFO: common: created directory at: artifacts]
+[2025-06-25 22:53:08,285: INFO: common: created directory at: artifacts/data_ingestion]
+[2025-06-25 22:53:08,286: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-06-25 23:03:46,798: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2025-06-25 23:03:48,727: INFO: data_ingestion: Extracted zip file sucessfully]
+[2025-06-25 23:03:48,729: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2025-06-25 23:03:48,729: INFO: main: *******************]
+[2025-06-25 23:03:48,729: INFO: main: >>>>>> stage Base model preparation stage started <<<<<<]
+[2025-06-25 23:03:48,739: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 23:03:48,745: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 23:03:48,747: INFO: common: created directory at: artifacts]
+[2025-06-25 23:03:48,751: INFO: common: created directory at: artifacts/prepare_base_model]
+[2025-06-25 23:03:49,631: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-06-25 23:03:50,367: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-06-25 23:03:52,679: INFO: main: >>>>>> stage Base model preparation stage completed <<<<<<
+
+x==========x]
+[2025-06-25 23:03:52,682: INFO: main: *******************]
+[2025-06-25 23:03:52,682: INFO: main: >>>>>> stage Training started <<<<<<]
+[2025-06-25 23:03:52,687: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 23:03:52,693: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 23:03:52,695: INFO: common: created directory at: artifacts]
+[2025-06-25 23:03:52,696: INFO: common: created directory at: artifacts\training]
+[2025-06-25 23:03:53,184: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-06-25 23:06:39,421: WARNING: saving_api: You are saving your model as an HDF5 file via `model.save()` or `keras.saving.save_model(model)`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')` or `keras.saving.save_model(model, 'my_model.keras')`. ]
+[2025-06-25 23:06:44,105: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2025-06-25 23:06:44,106: INFO: main: *******************]
+[2025-06-25 23:06:44,106: INFO: main: >>>>>> stage Evaluation stage started <<<<<<]
+[2025-06-25 23:06:44,314: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2025-06-25 23:06:44,555: INFO: common: yaml file: params.yaml loaded successfully]
+[2025-06-25 23:06:44,558: INFO: common: created directory at: artifacts]
+[2025-06-25 23:06:46,311: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2025-06-25 23:07:06,069: INFO: main: >>>>>> stage Evaluation stage completed <<<<<<
+
+x==========x]

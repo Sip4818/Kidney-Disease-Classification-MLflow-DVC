@@ -1,0 +1,20 @@
+artifact_path: file:///d:/learnbay/DL%20PROjECTS/Kidney-Disease-Classification-MLflow-DVC/mlruns/0/models/m-009f0d57688747418b09ce1958891588/artifacts
+flavors:
+  keras:
+    data: data
+    keras_backend: tensorflow
+    keras_version: 3.10.0
+    save_exported_model: false
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.keras
+    python_version: 3.12.7
+mlflow_version: 3.1.1
+model_id: m-009f0d57688747418b09ce1958891588
+model_size_bytes: 59141255
+model_uuid: m-009f0d57688747418b09ce1958891588
+prompts: null
+run_id: 5aab66851bb54aabb21e1fd2e227a49c
+utc_time_created: '2025-06-25 15:22:47.761515'

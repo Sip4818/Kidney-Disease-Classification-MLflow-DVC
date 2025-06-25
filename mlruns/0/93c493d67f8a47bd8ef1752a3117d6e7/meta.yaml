@@ -1,0 +1,14 @@
+artifact_uri: file:///d:/learnbay/DL%20PROjECTS/Kidney-Disease-Classification-MLflow-DVC/mlruns/0/93c493d67f8a47bd8ef1752a3117d6e7/artifacts
+end_time: 1750860009422
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 93c493d67f8a47bd8ef1752a3117d6e7
+run_name: delicate-cub-884
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1750859938114
+status: 3
+tags: []
+user_id: hp

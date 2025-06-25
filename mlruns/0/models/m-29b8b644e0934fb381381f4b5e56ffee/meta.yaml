@@ -1,0 +1,10 @@
+artifact_location: file:///d:/learnbay/DL%20PROjECTS/Kidney-Disease-Classification-MLflow-DVC/mlruns/0/models/m-29b8b644e0934fb381381f4b5e56ffee/artifacts
+creation_timestamp: 1750859944594
+experiment_id: '0'
+last_updated_timestamp: 1750860008782
+model_id: m-29b8b644e0934fb381381f4b5e56ffee
+model_type: null
+name: model
+source_run_id: 93c493d67f8a47bd8ef1752a3117d6e7
+status: 2
+status_message: null
